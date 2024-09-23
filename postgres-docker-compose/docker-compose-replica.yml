@@ -1,0 +1,25 @@
+version: '3.8'
+services:
+  db-replica1:
+    image: postgres:latest
+    container_name: postgres-replica1
+    hostname: pg-replica1
+    environment:
+      POSTGRES_USER: pjuliao
+      POSTGRES_PASSWORD: pjuliao
+      POSTGRES_DB: lab-db01
+    volumes:
+      - ./postgres-data-replica1:/var/lib/postgresql/data
+    ports:
+      - "15433:5432"
+    deploy:
+      resources:
+        limits:
+          memory: 512M
+          cpus: "0.5"
+    networks:
+      - postgres-network
+
+networks:
+  postgres-network:
+    driver: bridge
