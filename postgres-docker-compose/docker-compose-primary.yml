@@ -2,21 +2,21 @@ version: '3.8'
 services:
   db-primary:
     image: postgres:latest
-    container_name: postgres-primary
-    hostname: pg-primary
+    container_name: postgres-primary # Nome do contêiner na administração do Docker
+    hostname: pg-primary             # Nome do servidor dentro do contêiner
     environment:
       POSTGRES_USER: admin
       POSTGRES_PASSWORD: manager
-      POSTGRES_DB: seahawks
+      POSTGRES_DB: ubatuba
     volumes:
-      - ./postgres-data-primary:/var/lib/postgresql/data
+      - ./postgres-data-ubatuba:/var/lib/postgresql/data
     ports:
       - "15432:5432"
     deploy:
       resources:
         limits:
-          memory: 512M
-          cpus: "0.5"
+          memory: 512M # Limita a memória para 512MB
+          cpus: "0.5"  # Limita o uso de CPU a 50%
     networks:
       - postgres-network
 

@@ -2,21 +2,21 @@ version: '3.8'
 services:
   db-replica1:
     image: postgres:latest
-    container_name: postgres-replica1
-    hostname: pg-replica1
+    container_name: postgres-replica # Nome do contêiner na administração do Docker
+    hostname: pg-replica             # Nome do servidor dentro do contêiner
     environment:
-      POSTGRES_USER: pjuliao
-      POSTGRES_PASSWORD: pjuliao
-      POSTGRES_DB: lab-db01
+      POSTGRES_USER: admin
+      POSTGRES_PASSWORD: manager
+      POSTGRES_DB: maresias
     volumes:
-      - ./postgres-data-replica1:/var/lib/postgresql/data
+      - ./postgres-data-maresias:/var/lib/postgresql/data
     ports:
-      - "15433:5432"
+      - "15432:5432"
     deploy:
       resources:
         limits:
-          memory: 512M
-          cpus: "0.5"
+          memory: 512M  # Limita a memória para 512MB
+          cpus: "0.5"   # Limita o uso de CPU a 50%
     networks:
       - postgres-network
 
