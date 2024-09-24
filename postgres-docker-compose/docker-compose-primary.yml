@@ -3,11 +3,11 @@ services:
   db-primary:
     image: postgres:latest
     container_name: postgres-primary # Nome do contêiner na administração do Docker
-    hostname: pg-primary             # Nome do servidor dentro do contêiner
+    hostname: ubatuba            # Nome do servidor dentro do contêiner
     environment:
       POSTGRES_USER: admin
       POSTGRES_PASSWORD: manager
-      POSTGRES_DB: ubatuba
+      POSTGRES_DB: db_teste
     volumes:
       - ./postgres-data-ubatuba:/var/lib/postgresql/data
     ports:

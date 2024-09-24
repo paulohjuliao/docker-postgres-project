@@ -3,11 +3,11 @@ services:
   db-replica1:
     image: postgres:latest
     container_name: postgres-replica # Nome do contêiner na administração do Docker
-    hostname: pg-replica             # Nome do servidor dentro do contêiner
+    hostname: maresias             # Nome do servidor dentro do contêiner
     environment:
       POSTGRES_USER: admin
       POSTGRES_PASSWORD: manager
-      POSTGRES_DB: maresias
+      POSTGRES_DB: db_teste
     volumes:
       - ./postgres-data-maresias:/var/lib/postgresql/data
     ports:
